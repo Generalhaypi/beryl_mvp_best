@@ -1,3 +1,5 @@
+![Logo Béryl E-Mobility](https://github.com/Generalhaypi/beryl_mvp_best/blob/main/static/img/logo-beryl.png)
+
 # 🚀 Béryl MVP API – Backend Officiel  
 
 **Auteur :** Général Haypi  
