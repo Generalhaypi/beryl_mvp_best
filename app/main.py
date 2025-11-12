@@ -607,3 +607,95 @@ def set_avatar(user_id: int, url: str):
         phone=u.get("phone"),
         avatar_url=u.get("avatar_url"),
     )
+from fastapi import FastAPI
+from fastapi.openapi.utils import get_openapi
+
+app = FastAPI(title="Béryl MVP API",
+              version="1.0.0",
+              description="""🚀 **Béryl MVP Backend**
+              
+API officielle du prototype Béryl Écosystème, incluant :
+- **BérylCommunity** : réseau social intelligent
+- **Béryl E-Mobility** : réservation de taxis électriques
+- **BérylPay** : portefeuille, épargne, tontine
+- **ESG Podomètre** : mesure d’impact écologique
+
+👤 **Auteur :** Général Haypi  
+🏢 **Entreprise :** Béryl Holding S.A.S  
+📧 **Email :** berylholdingsa@gmail.com  
+📞 **Téléphone :** +225 07 00 89 01 88
+""")
+
+# Personnalisation du schéma OpenAPI
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="Béryl MVP API",
+        version="1.0.0",
+        description="API officielle du MVP de Béryl Holding S.A.S – Mobilité, Fintech et ESG intégrés.",
+        routes=app.routes,
+    )
+    openapi_schema["info"]["contact"] = {
+        "name": "Général Haypi – Béryl Holding S.A.S",
+        "email": "berylholdingsa@gmail.com",
+        "url": "https://github.com/Generalhaypi/beryl_mvp_best",
+    }
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
+
+app.openapi = custom_openapi
+from fastapi import FastAPI
+from fastapi.openapi.utils import get_openapi
+# --- IMPORT ROUTERS (robuste) ---
+app.include_router(users.router,     prefix="/users",     tags=["users"])
+app.include_router(wallet.router,    prefix="/wallet",    tags=["wallet"])
+app.include_router(community.router, prefix="/community", tags=["community"])
+app.include_router(mobility.router,  prefix="/mobility",  tags=["mobility"])
+app.include_router(esg.router,       prefix="/esg",       tags=["esg"])
+
+app.include_router(mobility.router,  prefix="/mobility",  tags=["mobility"])
+app.include_router(esg.router,       prefix="/esg",       tags=["esg"])
+app = FastAPI(
+    title="Béryl MVP API",
+    version="1.0.0",
+    description="""🚀 **Béryl MVP Backend**  
+API officielle du prototype Béryl Écosystème, incluant :  
+- **BérylCommunity** : réseau social intelligent  
+- **Béryl E-Mobility** : réservation de taxis électriques  
+- **BérylPay** : portefeuille, épargne, tontine  
+- **ESG Podomètre** : mesure d’impact écologique  
+
+👤 **Auteur :** Général Haypi  
+🏢 **Entreprise :** Béryl Holding S.A.S  
+📧 **Email :** berylholdingsa@gmail.com  
+📞 **Téléphone :** +225 07 00 89 01 88
+"""
+)
+
+# Monte les routes
+app.include_router(users.router, prefix="/users", tags=["users"])
+app.include_router(wallet.router, prefix="/wallet", tags=["wallet"])
+app.include_router(community.router, prefix="/community", tags=["community"])
+app.include_router(mobility.router, prefix="/mobility", tags=["mobility"])
+app.include_router(esg.router, prefix="/esg", tags=["esg"])
+
+# Schéma personnalisé
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="Béryl MVP API",
+        version="1.0.0",
+        description="API officielle du MVP de Béryl Holding S.A.S – Mobilité, Fintech et ESG intégrés.",
+        routes=app.routes,
+    )
+    openapi_schema["info"]["contact"] = {
+        "name": "Général Haypi – Béryl Holding S.A.S",
+        "email": "berylholdingsa@gmail.com",
+        "url": "https://github.com/Generalhaypi/beryl_mvp_best",
+    }
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
+
+app.openapi = custom_openapi
