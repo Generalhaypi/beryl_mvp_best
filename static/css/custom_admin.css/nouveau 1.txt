@@ -1,0 +1,26 @@
+/* ===== Thème Vert Béryl ===== */
+:root {
+    --beryl-green: #014421;
+}
+
+body.login, #header, .module caption {
+    background-color: var(--beryl-green) !important;
+}
+
+#header a:link, #header a:visited {
+    color: #ffffff !important;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input {
+    background: var(--beryl-green) !important;
+    color: white !important;
+    border: none;
+}
+
+.button:hover, input[type=submit]:hover {
+    background: #026c33 !important;
+}
+
+h1, h2, h3, caption {
+    color: var(--beryl-green) !important;
+}

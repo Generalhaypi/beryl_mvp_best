@@ -1,0 +1,54 @@
+/* ===== Thème Béryl Admin ===== */
+
+/* Bandeau haut */
+#header {
+    background-color: #014421 !important;
+}
+
+/* Titre et liens dans le header */
+#header h1,
+#header h1 a,
+#header h1 a:link,
+#header h1 a:visited {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+/* Liens "Ajouter" / "Changement" */
+a.addlink,
+a.changelink {
+    color: #014421 !important;
+    font-weight: 600;
+}
+
+/* Boutons principaux */
+.submit-row input.default,
+.submit-row input[type="submit"],
+.button,
+a.button {
+    background-color: #014421 !important;
+    border-color: #014421 !important;
+    color: #ffffff !important;
+}
+
+/* Effet au survol */
+.submit-row input.default:hover,
+.submit-row input[type="submit"]:hover,
+.button:hover,
+a.button:hover {
+    background-color: #02692f !important;
+    border-color: #02692f !important;
+}
+
+/* Titres des blocs dans l'index admin */
+.module caption {
+    background-color: #014421 !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Liens au survol */
+a:focus,
+a:hover {
+    color: #02692f !important;
+}

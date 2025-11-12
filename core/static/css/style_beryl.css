@@ -1,0 +1,7 @@
+:root {
+  --beryl-green: #014421;
+}
+
+body {
+  background-color: var(--beryl-green);
+}
