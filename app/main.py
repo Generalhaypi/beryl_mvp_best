@@ -653,7 +653,6 @@ app.include_router(wallet.router,    prefix="/wallet",    tags=["wallet"])
 app.include_router(community.router, prefix="/community", tags=["community"])
 app.include_router(mobility.router,  prefix="/mobility",  tags=["mobility"])
 app.include_router(esg.router,       prefix="/esg",       tags=["esg"])
-
 app.include_router(mobility.router,  prefix="/mobility",  tags=["mobility"])
 app.include_router(esg.router,       prefix="/esg",       tags=["esg"])
 app = FastAPI(
@@ -699,3 +698,5 @@ def custom_openapi():
     return app.openapi_schema
 
 app.openapi = custom_openapi
+from app.users import router as users_router
+app.include_router(users_router, prefix="/users", tags=["users"])
