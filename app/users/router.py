@@ -11,4 +11,5 @@ class RegisterIn(BaseModel):
 
 @router.post("/register")
 def register(payload: RegisterIn):
+    # stub simple pour valider le flux
     return {"id": "demo", "email": payload.email}
