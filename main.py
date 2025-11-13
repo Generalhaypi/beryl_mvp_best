@@ -3,7 +3,7 @@ from pydantic import BaseModel, EmailStr
 
 app = FastAPI(title="Beryl MVP API", version="1.0.0")
 
-router = APIRouter(prefix="/users", tags=["users"])
+router = APIRouter()
 
 class RegisterIn(BaseModel):
     email: EmailStr
@@ -13,7 +13,7 @@ class RegisterIn(BaseModel):
 def register(payload: RegisterIn):
     return {"email": payload.email, "status": "success"}
 
-app.include_router(router)
+app.include_router(router, prefix="/users", tags=["users"])
 
 @app.get("/")
 def root():
