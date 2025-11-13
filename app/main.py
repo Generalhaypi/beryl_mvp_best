@@ -647,14 +647,31 @@ def custom_openapi():
 app.openapi = custom_openapi
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-# --- IMPORT ROUTERS (robuste) ---
-app.include_router(users.router,     prefix="/users",     tags=["users"])
-app.include_router(wallet.router,    prefix="/wallet",    tags=["wallet"])
-app.include_router(community.router, prefix="/community", tags=["community"])
-app.include_router(mobility.router,  prefix="/mobility",  tags=["mobility"])
-app.include_router(esg.router,       prefix="/esg",       tags=["esg"])
-app.include_router(mobility.router,  prefix="/mobility",  tags=["mobility"])
-app.include_router(esg.router,       prefix="/esg",       tags=["esg"])
+
+# === Crée l'app AVANT d'inclure les routers ===
+app = FastAPI(
+    title="Béryl MVP API",
+    version="1.0.0",
+    description="🚀 **Béryl MVP Backend**",
+)
+
+# === Imports explicites des routers ===
+# Assure-toi que ces fichiers existent: app/users/router.py, app/wallet/router.py, etc.
+from app.users.router import router as users_router
+# Dé-commente les lignes ci-dessous uniquement si ces modules existent réellement
+# from app.wallet.router import router as wallet_router
+# from app.community.router import router as community_router
+# from app.mobility.router import router as mobility_router
+# from app.esg.router import router as esg_router
+
+# === Montage des routers (sans doublons) ===
+app.include_router(users_router, prefix="/users", tags=["users"])
+# app.include_router(wallet_router, prefix="/wallet", tags=["wallet"])
+# app.include_router(community_router, prefix="/community", tags=["community"])
+# app.include_router(mobility_router, prefix="/mobility", tags=["mobility"])
+# app.include_router(esg_router, prefix="/esg", tags=["esg"])
+
+# === (Ton code custom_openapi peut rester en dessous, mais conserve: app.openapi = custom_openapi) ===
 app = FastAPI(
     title="Béryl MVP API",
     version="1.0.0",
